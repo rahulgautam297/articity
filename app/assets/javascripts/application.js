@@ -12,5 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require jquery-fileupload/basic
+$(document).ready(function() {
+	$(".thouWillBringDarkness").on("click", function() {
+		$('.shallTurnToDarkness').show();
+		$('.signUpForm').hide();
+		$('body').css({"overflow":"hidden"});
+	});
+	$(".thouWillBringDarkness1").on("click", function() {
+		$('.shallTurnToDarkness').show();
+		$('.signInForm').hide();
+		$('body').css({"overflow":"hidden"});
+	});	
+});

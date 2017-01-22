@@ -1,0 +1,5 @@
+$('.shallTurnToDarkness').prepend('<%= j render("_new") %>');
+$(".removeForm").on("click", function() {
+	$('.shallTurnToDarkness').hide();
+	$('body').css({"overflow":"initial"});
+});	

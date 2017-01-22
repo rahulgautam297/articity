@@ -1,0 +1,12 @@
+<section class="photoContainer">
+	<% if @user[:picture].nil? || @user[:picture].empty? %>
+		<div>
+			<%= form_for(@user, url: 'profile_picture', html: { multipart: true }) do |f| %>
+	  			<%= f.file_field :picture %>
+	  			<%= f.submit "Upload", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	<%else%>
+		<%= image_tag current_user.picture.url, class: "profilePhoto"%>	
+	<%end%>
+</section>
