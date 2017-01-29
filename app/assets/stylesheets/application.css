@@ -37,8 +37,8 @@
 	font-weight: 500;
 }
 .completeHeading{
- display: flex;
- min-width: 720px;
+ 	display: flex;
+ 	min-width: 720px;
 }
 .navbar-default{
 	border-color: white;
@@ -96,6 +96,16 @@
 	top: 30%;
 }
 .signUpForm{
+	background-color:rgba(255,255,255,0.8); 
+	position: absolute;
+	top: 30%;
+}
+.forgotPasswordForm{
+	background-color:rgba(255,255,255,0.8); 
+	position: absolute;
+	top: 30%;
+}
+.confirmationForm{
 	background-color:rgba(255,255,255,0.8); 
 	position: absolute;
 	top: 30%;

@@ -27,4 +27,7 @@ $(document).ready(function() {
 		$('.signInForm').hide();
 		$('body').css({"overflow":"hidden"});
 	});	
+	$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+	});
 });

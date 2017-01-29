@@ -1,0 +1,10 @@
+<div class="col-sm-2 col-xs-8 col-xs-offset-2 col-sm-offset-5 confirmationForm">
+	<h2>Resend confirmation instructions</h2>
+	<button class="removeForm">X</button>
+	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= devise_error_messages! %>
+	    <%= f.label :email %><br />
+	    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+	    <%= f.submit "Resend confirmation instructions", class: "btn btn-primary" %>
+	<% end %>
+</div>

@@ -1,0 +1,10 @@
+<div class="col-sm-2 col-xs-8 col-xs-offset-2 col-sm-offset-5 forgotPasswordForm">
+	<button class="removeForm">X</button>
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= devise_error_messages! %>
+
+	    <%= f.label :email %><br />
+	    <%= f.email_field :email, autofocus: true %>
+	    <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+	<% end %>
+</div>

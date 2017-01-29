@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:add_skill]
 
   # GET /skills
   # GET /skills.json
@@ -59,6 +60,9 @@ class SkillsController < ApplicationController
       format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_skill
   end
 
   private

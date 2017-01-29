@@ -37,6 +37,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :college
       t.string :state
       t.string :country
+      t.string :provider
+      t.string :uid
 
       t.timestamps null: false
     end

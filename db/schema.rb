@@ -46,13 +46,14 @@ ActiveRecord::Schema.define(version: 20161223161312) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "name"
-    t.string   "surname"
     t.string   "picture"
     t.text     "description"
     t.string   "school"
     t.string   "college"
     t.string   "state"
     t.string   "country"
+    t.string   "provider"
+    t.string   "uid"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

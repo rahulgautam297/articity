@@ -1,8 +1,8 @@
 $('.shallTurnToDarkness').prepend('<%= j render("new") %>');
 $('.signInForm').hide();
-$('.forgotPasswordForm').hide();
+$('.signUpForm').hide();
 $('.confirmationForm').hide();
 $(".removeForm").on("click", function() {
 	$('.shallTurnToDarkness').hide();
 	$('body').css({"overflow":"initial"});
-});	
+});
