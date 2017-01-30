@@ -1,2 +1,3 @@
 <h1>Choose your skill-</h1>
 <%= collection_select(:skill, :skill_id, Skill.all, :id, :name, prompt: true, multiple: :true) %>
+<%= react_component 'Skills', {data: @skills} %>

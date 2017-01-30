@@ -17,7 +17,7 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li> 
+	        <li>
 	        	<%= link_to root_path do %>
 	       			<span class="glyphicon glyphicon-th-large sizeMeUp" aria-hidden="true" data-toggle="tooltip" title="Dashboard" data-placement="bottom" ></span>
 	        	<%end%>
@@ -39,7 +39,7 @@
             	<%= link_to add_skill_path do %>
             		<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Start selling
             	<%end%>
-           	</li>           	
+           	</li>
            	<li role="separator" class="divider"></li>
             <li>
             	<%= link_to destroy_user_session_path, method: :delete do %>
@@ -59,7 +59,7 @@
 		</span>
 		<span class="fadeThis">Writers
 		</span>
-	</div>	
+	</div>
 	<h3>Articity helps you find creative services you need for your business.</h3>
 	<form class="navbar-form navbar-left" id= "mainSearch">
         <div class="form-group">
@@ -93,7 +93,7 @@
 	        		<h3>Designers</h3>
 	      		</div>
 	    	</div>
-	  	</div>  	  	
+	  	</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-4 col-xs-6">
@@ -119,7 +119,7 @@
 	        		<h3>A service you desire</h3>
 	      		</div>
 	    	</div>
-	  	</div>  	  	
+	  	</div>
 	</div>
 	<div class="row howSection">
 		<h3>How it works</h3>
@@ -132,3 +132,8 @@
 
 	</div>
 </div>
+<script type="text/javascript">
+	$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+	});
+</script>

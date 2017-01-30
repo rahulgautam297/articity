@@ -63,6 +63,7 @@ class SkillsController < ApplicationController
   end
 
   def add_skill
+    @skills = Skill.all
   end
 
   private

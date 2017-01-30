@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 //= require jquery-fileupload/basic
 $(document).ready(function() {
@@ -26,7 +29,7 @@ $(document).ready(function() {
 		$('.shallTurnToDarkness').show();
 		$('.signInForm').hide();
 		$('body').css({"overflow":"hidden"});
-	});	
+	});
 	$(function () {
   		$('[data-toggle="tooltip"]').tooltip()
 	});
