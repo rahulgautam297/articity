@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20161223161312) do
   enable_extension "plpgsql"
 
   create_table "skills", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "user_skills", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "skill_id"
+    t.integer  "user_id",    null: false
+    t.integer  "skill_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["skill_id"], name: "index_user_skills_on_skill_id", using: :btree
@@ -46,12 +46,14 @@ ActiveRecord::Schema.define(version: 20161223161312) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "name"
+    t.string   "mobile_number"
     t.string   "picture"
     t.text     "description"
-    t.string   "school"
+    t.string   "potfolio"
     t.string   "college"
+    t.text     "address"
+    t.string   "locality"
     t.string   "state"
-    t.string   "country"
     t.string   "provider"
     t.string   "uid"
     t.datetime "created_at",                          null: false

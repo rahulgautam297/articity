@@ -12,7 +12,7 @@
       <% end %>
     </div>
   <%else%>
-    <%= image_tag current_user.picture.url, class: "profilePhoto"%> 
+    <%= image_tag current_user.picture.url, class: "profilePhoto"%>
   <%end%>
 </section><!--  WORK ON PHOTO UPLOAD!!! -->
 
@@ -39,14 +39,11 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-      <%= f.label :school %><br />
-  <%= f.text_field :school, autofocus: true %><br />
+
       <%= f.label :college %><br />
   <%= f.text_field :college, autofocus: true %><br />
       <%= f.label :state %><br />
   <%= f.text_field :state, autofocus: true %><br />
-      <%= f.label :country %><br />
-  <%= f.text_field :country, autofocus: true %>  <br />
 
   <div class="actions">
     <%= f.submit "Update" %>

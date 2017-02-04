@@ -18,7 +18,6 @@
 //= require react_ujs
 //= require components
 //= require_tree .
-//= require jquery-fileupload/basic
 $(document).ready(function() {
 	$(".thouWillBringDarkness").on("click", function() {
 		$('.shallTurnToDarkness').show();
