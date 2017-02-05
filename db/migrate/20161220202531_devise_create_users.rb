@@ -31,10 +31,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
 
       t.string :name
-      t.string :mobile_number
+      t.string :mobile
       t.string :picture
       t.text   :description
-      t.string :potfolio
+      t.string :portfolio
       t.string :college
       t.text   :address
       t.string :locality
@@ -46,7 +46,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
     end
 
     add_index :users, :email,                unique: true
-    add_index :users, :mobile,                unique: true    
+    add_index :users, :mobile,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true

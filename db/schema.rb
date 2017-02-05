@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223161312) do
+ActiveRecord::Schema.define(version: 20170204172702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "language_users", force: :cascade do |t|
+    t.integer  "language_id"
+    t.integer  "user_id"
+    t.integer  "level",       default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["language_id"], name: "index_language_users_on_language_id", using: :btree
+    t.index ["user_id"], name: "index_language_users_on_user_id", using: :btree
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",       null: false
@@ -46,10 +62,10 @@ ActiveRecord::Schema.define(version: 20161223161312) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "name"
-    t.string   "mobile_number"
+    t.string   "mobile"
     t.string   "picture"
     t.text     "description"
-    t.string   "potfolio"
+    t.string   "portfolio"
     t.string   "college"
     t.text     "address"
     t.string   "locality"
@@ -60,9 +76,12 @@ ActiveRecord::Schema.define(version: 20161223161312) do
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["mobile"], name: "index_users_on_mobile", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "language_users", "languages"
+  add_foreign_key "language_users", "users"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end

@@ -1,0 +1,1 @@
+json.partial! "language_users/language_user", language_user: @language_user

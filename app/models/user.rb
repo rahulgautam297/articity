@@ -6,6 +6,8 @@ class User < ApplicationRecord
   mount_uploader :picture, PictureUploader
   has_many :skills, through: :user_skills
   has_many :user_skills
+  has_many :languages, through: :language_users
+  has_many :language_users
 
 	def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -1,0 +1,13 @@
+<%= simple_form_for(@language_user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :language %>
+    <%= f.association :user %>
+    <%= f.input :level %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

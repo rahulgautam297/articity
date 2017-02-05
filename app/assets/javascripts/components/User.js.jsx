@@ -5,6 +5,7 @@ var User=class User extends React.Component {
   }
  handleUpload(e) {
   e.preventDefault();
+  //add gif functionality
   var reader = new FileReader();
   var file = e.target.files[0];
   reader.onloadend = function() {
@@ -24,14 +25,16 @@ var User=class User extends React.Component {
     data: formData,
     success: function(post) {
        console.log("Done!")
+       //change imageUrl from response
     }
   })
 }
   imagePresent(){
     return (
       <section className="containImageandInput">
+        <h3> Update Image </h3>
         <img src={this.state.imageUrl} className="centerImage"/>
-        <input className="fileInput" type="file" onChange={this.handleUpload.bind(this)}/>
+        <input className="fileInputforImage" type="file" onChange={this.handleUpload.bind(this)}/>
       </section>
     );
   }
@@ -39,6 +42,7 @@ var User=class User extends React.Component {
   imageNotPresent(){
     return (
       <section className="containImageandInput">
+        <h3> Upload Image </h3>
         <form className = "centerImage">
           <input className="fileInput" type="file" onChange={this.handleUpload.bind(this)}/>
         </form>
