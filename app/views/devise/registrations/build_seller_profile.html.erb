@@ -6,24 +6,28 @@
 </div>
 
 <%= form_for(@user, url: 'update_seller_info', method: :put ) do |f| %>
-<div class= "sellerForm">
-<%= f.label :name %><br />
-<%= f.text_field :name, autofocus: true %><br />
-<%= f.label :mobile %><br />
-<%= f.text_field :mobile, autofocus: true %><br />
-<%= f.label :description %><br />
-<%= f.text_field :description, autofocus: true %><br />
-<%= f.label :college %><br />
-<%= f.text_field :college, autofocus: true %><br />
-<%= f.label :locality %><br />
-<%= f.text_field :locality, autofocus: true %><br />
-<%= f.label :state %><br />
-<%= f.text_field :state, autofocus: true %><br />
-<%= f.label :portfolio %><br />
-<%= f.text_field :portfolio, autofocus: true %><br />
-<%= f.submit "Update" , class: "btn btn-primary"%>
-<div>
+  <div class= "sellerForm">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %><br />
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile, autofocus: true %><br />
+    <%= f.label :description %><br />
+    <%= f.text_field :description, autofocus: true %><br />
+    <%= f.label :college %><br />
+    <%= f.text_field :college, autofocus: true %><br />
+    <%= f.label :locality %><br />
+    <%= f.text_field :locality, autofocus: true %><br />
+    <%= f.label :state %><br />
+    <%= f.text_field :state, autofocus: true %><br />
+    <%= f.label :portfolio %><br />
+    <%= f.text_field :portfolio, autofocus: true %><br />
+    <%= f.submit "Update" , class: "btn btn-primary"%>
+  <div>
 <% end %>
+<div class="languageKeeper">
+  <%= react_component 'Languages', {allLanguages: @languages,
+                                          languagesLevels: @languages_levels} %>
+</div>
 
 
 
@@ -31,4 +35,4 @@
 
 
 
-<!-- www.atcouch.com<textarea type="text" class="form-control formTextColor" id="formmessage" rows="4" col="40" placeholder="Message" name="message"></textarea>t.string :mobile t.string :picture t.text :description t.string :potfolio t.string :college t.text :address t.string :locality t.string :state -->
+<!-- textarea type="text" class="form-control formTextColor" id="formmessage" rows="4" col="40" placeholder="Message" name="message"></textarea> -->

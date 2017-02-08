@@ -145,3 +145,6 @@
 .sellerForm{
   text-align:center;
 }
+.hiddenOption{
+  display: none !important;
+}

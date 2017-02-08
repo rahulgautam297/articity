@@ -28,8 +28,40 @@ class User < ApplicationRecord
     end
   end
   def image_size
-   if image.size > 5.megabytes
-     errors.add(:image, "Image size should be less than 5 MB")
-   end
- end
+    if image.size > 5.megabytes
+      errors.add(:image, "Image size should be less than 5 MB")
+    end
+  end
+  def return_specified_attributes(hash, level)
+    new_hash=[]
+    hash.each do |hash|
+      obj= {}
+      if level == true
+        obj[:level_id] = hash[:id]
+      else
+        obj[:language_id] = hash[:id]
+      end
+      if hash[:level]
+        obj[:level] = hash[:level]
+      end
+      if hash[:name]
+        obj[:name] = hash[:name]
+      end
+      new_hash << obj
+    end
+    return new_hash
+  end
+  def merge_two(hash_1,hash_2)
+    new_hash=[]
+    hash = hash_1.zip(hash_2)
+    hash.each do |hash|
+      obj= {}
+      obj[:language_id] = hash.first[:language_id]
+      obj[:name] = hash.first[:name]
+      obj[:level] = hash.second[:level]
+      obj[:level_id] = hash.second[:level_id]
+      new_hash << obj
+    end
+    return new_hash
+  end
 end

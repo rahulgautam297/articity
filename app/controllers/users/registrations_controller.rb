@@ -7,6 +7,12 @@ respond_to :html, :js
 
   def build_seller_profile
     @user = current_user
+    @user_levels=@user.language_users.includes(:language)
+    @user_levels=@user.return_specified_attributes(@user_levels, true)
+    @user_languages=@user.languages
+    @user_languages=@user.return_specified_attributes(@user_languages, false)
+    @languages_levels=@user.merge_two(@user_languages,@user_levels)
+    @languages = Language.all
   end
 
   def upload_picture
@@ -18,7 +24,7 @@ respond_to :html, :js
   def update_seller_info
     @user = current_user
     if @user.update_attributes(user_params)
-      # take to dashboard
+      # take to skills
     else
       render build_seller_profile
     end
