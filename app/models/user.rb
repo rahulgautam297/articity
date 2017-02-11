@@ -32,34 +32,30 @@ class User < ApplicationRecord
       errors.add(:image, "Image size should be less than 5 MB")
     end
   end
-  def return_specified_attributes(hash, level)
+
+  def add_levels(array)
     new_hash=[]
-    hash.each do |hash|
+    level = LanguageUser.levels
+    array.each do |hash|
       obj= {}
-      if level == true
-        obj[:level_id] = hash[:id]
-      else
-        obj[:language_id] = hash[:id]
-      end
-      if hash[:level]
-        obj[:level] = hash[:level]
-      end
-      if hash[:name]
-        obj[:name] = hash[:name]
-      end
+      obj[:name] = hash[:name]
+      obj[:level_id] = hash.id
+      current_level = level.rassoc(hash.level)[0]
+      obj[:level] = current_level
       new_hash << obj
     end
     return new_hash
   end
-  def merge_two(hash_1,hash_2)
+
+  def add_skills_info(array)
     new_hash=[]
-    hash = hash_1.zip(hash_2)
-    hash.each do |hash|
+    array.each do |hash|
       obj= {}
-      obj[:language_id] = hash.first[:language_id]
-      obj[:name] = hash.first[:name]
-      obj[:level] = hash.second[:level]
-      obj[:level_id] = hash.second[:level_id]
+      obj[:name] = hash[:name]
+      obj[:description] = hash.description
+      obj[:price] = hash.price
+      obj[:portfolio] = hash.portfolio
+      obj[:image] = hash.image
       new_hash << obj
     end
     return new_hash

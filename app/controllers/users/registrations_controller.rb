@@ -7,24 +7,21 @@ respond_to :html, :js
 
   def build_seller_profile
     @user = current_user
-    @user_levels=@user.language_users.includes(:language)
-    @user_levels=@user.return_specified_attributes(@user_levels, true)
-    @user_languages=@user.languages
-    @user_languages=@user.return_specified_attributes(@user_languages, false)
-    @languages_levels=@user.merge_two(@user_languages,@user_levels)
+    @languages_and_levels=@user.languages.select('languages.*,language_users.*')
+    @languages_and_levels=@user.add_levels(@languages_and_levels)
     @languages = Language.all
   end
 
   def upload_picture
     @user = current_user
     @user.update_attributes(picture: user_params[:picture])
-    render json:{done:"done mother fucka!!!"}
+    render json:{done:"mofo!!!"}
   end
 
   def update_seller_info
     @user = current_user
     if @user.update_attributes(user_params)
-      # take to skills
+      redirect_to skills_and_categories_path
     else
       render build_seller_profile
     end

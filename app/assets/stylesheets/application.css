@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/autocomplete
  */
  @font-face {
   font-family: 'Glyphicons Halflings';
@@ -147,4 +148,15 @@
 }
 .hiddenOption{
   display: none !important;
+}
+.centerTable > *{
+  margin: auto;
+  text-align: center;
+}
+.centerTable{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.centerTable th{
+  text-align: center;
 }

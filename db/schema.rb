@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204172702) do
+ActiveRecord::Schema.define(version: 20170211054209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,17 +31,30 @@ ActiveRecord::Schema.define(version: 20170204172702) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "skills", force: :cascade do |t|
-    t.string   "name",       null: false
+  create_table "skill_categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string   "name",                                                  null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.integer  "skill_category_id"
+    t.string   "description",       default: "Please add description."
+    t.index ["skill_category_id"], name: "index_skills_on_skill_category_id", using: :btree
+  end
+
   create_table "user_skills", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "skill_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",     null: false
+    t.integer  "skill_id",    null: false
+    t.string   "description", null: false
+    t.string   "price",       null: false
+    t.string   "portfolio"
+    t.string   "multimedia"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["skill_id"], name: "index_user_skills_on_skill_id", using: :btree
     t.index ["user_id"], name: "index_user_skills_on_user_id", using: :btree
   end
@@ -82,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170204172702) do
 
   add_foreign_key "language_users", "languages"
   add_foreign_key "language_users", "users"
+  add_foreign_key "skills", "skill_categories"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end

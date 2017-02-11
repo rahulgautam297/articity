@@ -61,6 +61,11 @@ class LanguagesController < ApplicationController
     end
   end
 
+  def search
+    @languages = Language.search(language_params[:query])
+    render json: @languages.to_json
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_language
@@ -69,6 +74,6 @@ class LanguagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def language_params
-      params.require(:language).permit(:name)
+      params.require(:language).permit(:name,:query)
     end
 end

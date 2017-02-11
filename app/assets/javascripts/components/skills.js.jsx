@@ -1,7 +1,7 @@
-var Languages = class Languages extends React.Component {
+var Skills = class Skills extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {allLanguages: this.props.allLanguages,
+    this.state = {allskills: this.props.allSkills,
               languages: this.props.languagesLevels,languageFormPresent: false}
   }
   displayLanguageForm(e){

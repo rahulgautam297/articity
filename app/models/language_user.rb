@@ -4,5 +4,5 @@ class LanguageUser < ApplicationRecord
   validates :user_id,  presence: true
   validates :language_id, presence: true
   validates :level,    presence: true
-  enum level: {"Basic": 0, "Conversational": 1, "Fluent": 2, "Native or bilingual": 3 }
+  enum level: {"Basic": 1, "Conversational": 2, "Fluent": 3, "Native or bilingual": 4 }
 end

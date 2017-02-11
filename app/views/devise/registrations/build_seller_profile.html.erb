@@ -21,12 +21,12 @@
     <%= f.text_field :state, autofocus: true %><br />
     <%= f.label :portfolio %><br />
     <%= f.text_field :portfolio, autofocus: true %><br />
+    <div class="languageKeeper">
+      <%= react_component 'Languages', {allLanguages: @languages,
+                                    languagesLevels: @languages_and_levels} %>    
     <%= f.submit "Update" , class: "btn btn-primary"%>
   <div>
 <% end %>
-<div class="languageKeeper">
-  <%= react_component 'Languages', {allLanguages: @languages,
-                                          languagesLevels: @languages_levels} %>
 </div>
 
 

@@ -17,6 +17,7 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require jquery-ui/widgets/autocomplete
 //= require_tree .
 $(document).ready(function() {
 	$(".thouWillBringDarkness").on("click", function() {
