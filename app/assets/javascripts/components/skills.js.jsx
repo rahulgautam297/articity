@@ -78,4 +78,6 @@ var Skills = class Skills extends React.Component {
     )
   }
 }
+document.addEventListener("skillContainer", function(event) {
 ReactDOM.render(<Skills />,document.getElementById('skillContainer'));
+});

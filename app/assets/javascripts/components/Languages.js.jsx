@@ -69,4 +69,6 @@ var Languages = class Languages extends React.Component {
     )
   }
 }
+document.addEventListener("languageKeeper", function(event) {
 ReactDOM.render(<Languages />,document.getElementById('languageKeeper'));
+});

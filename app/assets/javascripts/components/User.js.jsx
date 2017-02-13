@@ -63,5 +63,6 @@ var User=class User extends React.Component {
     return this.renderOneOfTwo();
   }
 }
-
+document.addEventListener("pictureKeeper", function(event) {
 ReactDOM.render(<User />,document.getElementById('pictureKeeper'));
+});
