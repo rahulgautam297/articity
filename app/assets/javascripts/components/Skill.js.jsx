@@ -29,18 +29,27 @@ var Skill = class Skill extends React.Component {
   handleEdit(e) {
     e.preventDefault();
     data={name:ReactDOM.findDOMNode(this.refs.skill_name).value,
-            description:ReactDOM.findDOMNode(this.refs.skill_description).value,
-                        price:ReactDOM.findDOMNode(this.refs.skill_price).value,
-                portfolio:ReactDOM.findDOMNode(this.refs.skill_portfolio).value,
-      multimedia:ReactDOM.findDOMNode(this.refs.skill_multimedia).files[0].name,
+          description:ReactDOM.findDOMNode(this.refs.skill_description).value,
+          price:ReactDOM.findDOMNode(this.refs.skill_price).value,
+          portfolio:ReactDOM.findDOMNode(this.refs.skill_portfolio).value,
                                   user_skill_id:this.props.skill.user_skill_id}
     var formData = new FormData();
+    if(ReactDOM.findDOMNode(this.refs.skill_multimedia).files.length> 0){
+      data.multimedia=
+            ReactDOM.findDOMNode(this.refs.skill_multimedia).files[0].name
+            formData.append("[user_skill[multimedia]]",
+            ReactDOM.findDOMNode(this.refs.skill_multimedia).files[0]);
+    }
+    else{
+      data.multimedia=
+            ReactDOM.findDOMNode(this.refs.skill_multimedia).defaultValue;
+    }
+
     formData.append("[user_skill[user_skill_id]]",data.user_skill_id);
     formData.append("[user_skill[name]]",data.name);
     formData.append("[user_skill[description]]",data.description);
     formData.append("[user_skill[price]]",data.price);
     formData.append("[user_skill[portfolio]]",data.portfolio);
-    formData.append("[user_skill[multimedia]]",data.multimedia);
      $.ajax({
        url: '/update_user_skill',
        type: 'PUT',
@@ -100,7 +109,8 @@ var Skill = class Skill extends React.Component {
         </td>
         <td>
           <span className="glyphicon glyphicon-upload upload-size" aria-hidden="true">
-           <input type='file' className='skillInput'ref='skill_multimedia'/>
+           <input type='file' className='skillInput'
+           defaultValue={this.props.skill.multimedia} ref='skill_multimedia'/>
          </span>
         </td>
         <td>
