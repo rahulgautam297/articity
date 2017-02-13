@@ -41,20 +41,24 @@ var LanguageForm = class LanguageForm extends React.Component {
     if (this.state.shown){
       var selects = [];
       for (var i = 0; i < this.state.languages.length; i++) {
-        // selects.push(<option value={this.state.languages[i].name}
-        //                             key={this.state.languages[i].id} />);
         selects.push(this.state.languages[i].name);
       }
       $( "#language-filter" ).autocomplete({
         source: selects,
-        cacheLength:20,
-        max:20,
+        delay: 0,
         change: function (event, ui) {
-            if (!ui.item) {
-                 $(this).val('');
-                 this.setState({language:""})
+            var capitalized=event.target.value.charAt(0).toUpperCase()+ event.target.value.slice(1);
+            if (selects.indexOf(event.target.value) < 0 && selects.indexOf(capitalized)>-1) {
+              this.setState({language:capitalized})
+            }
+            else if (selects.indexOf(capitalized) < 0) {
+              this.setState({language:""})
              }
-        }.bind(this)
+        }.bind(this),
+        messages: {
+                noResults: '',
+                results: function() {}
+            }
       });
       return (
         <form className='form-inline'>
@@ -62,7 +66,7 @@ var LanguageForm = class LanguageForm extends React.Component {
              <input type='search' className='form-control' placeholder='Add language'
               value={this.state.language} onChange={this.handleChange.bind(this, 'language')}
               onBlur={this.handleChange.bind(this, 'language')}
-              id="language-filter" placeholder="select language"  />
+              id="language-filter" placeholder="Select language"  />
            </div>
            <div className='form-group'>
             <select value={this.state.level} onChange={this.handleChange.bind(this, 'level')}>

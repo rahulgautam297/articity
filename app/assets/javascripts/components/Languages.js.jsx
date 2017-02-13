@@ -19,7 +19,6 @@ var Languages = class Languages extends React.Component {
     array=this.state.languages
     var index=-1;
     for(var i = 0; i < array.length; i ++) {
-      console.log(array[i].level_id);
       if(array[i].level_id === id){
           index=i;
           break;

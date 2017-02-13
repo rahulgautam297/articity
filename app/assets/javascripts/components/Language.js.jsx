@@ -67,12 +67,12 @@ var Language = class Language extends React.Component {
   }
 
   languageForm() {
+    //change to select for valid options in languages
     return(
       <tr>
         <td>
           <input className='form-control' type='text'
                  defaultValue={this.props.language.name} ref='language_name'>
-                 //change to select for valid options
           </input>
         </td>
         <td>

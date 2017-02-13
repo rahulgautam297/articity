@@ -1,73 +1,81 @@
 var Skills = class Skills extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {allskills: this.props.allSkills,
-              languages: this.props.languagesLevels,languageFormPresent: false}
-  }
-  displayLanguageForm(e){
-    e.preventDefault();
-    this.setState({languageFormPresent : true});
+    this.state = {allSkills: this.props.allSkills, userSkills: this.props.userSkills}
   }
 
-  addLanguage(language, level, id) {
-  var language = {name:language, level:level, level_id:id}
-  var languages = React.addons.update(this.state.languages, { $push: [language] })
-  this.setState({ languages: languages });
+  addSkill(data) {
+  var skills = React.addons.update(this.state.userSkills, { $push: [data] })
+  this.setState({ userSkills: skills });
   }
 
-  deleteLanguage(id) {
-    array=this.state.languages
+  deleteSkill(id) {
+    array=this.state.userSkills
     var index=-1;
     for(var i = 0; i < array.length; i ++) {
-      console.log(array[i].level_id);
-      if(array[i].level_id === id){
+      if(array[i].user_skill_id === id){
           index=i;
           break;
       }
     }
-    var languages = React.addons.update(this.state.languages,
+    var skills = React.addons.update(this.state.userSkills,
                                                     { $splice: [[index, 1]] });
-    this.setState({ languages: languages, languageFormPresent: false});
+    this.setState({ userSkills: skills});
   }
 
-  updateLanguage(language, data) {
-    var index = this.state.languages.indexOf(language);
-    var languages = React.addons.update(this.state.languages,
+  updateSkill(skill, data) {
+    var index = this.state.userSkills.indexOf(skill);
+    var skills = React.addons.update(this.state.userSkills,
                                       { $splice: [[index, 1, data]] });
-    this.setState({ languages: languages });
+    this.setState({ userSkills: skills });
   }
+
   render(){
+
     return (
-      <div className="centerTable">
-        <LanguageForm handleNewLanguage={this.addLanguage.bind(this)}
-  languages={this.state.allLanguages} shown={this.state.languageFormPresent} />
-        <table>
-          <thead>
-            <tr>
-              <th>
-              Language
-              </th>
-              <th>
-              Level
-              </th>
-              <th>
-                <button className="btn btn-primary"
-                                  onClick={this.displayLanguageForm.bind(this)}>
-                <span className="glyphicon glyphicon-plus"
-                                    aria-hidden="true"></span> Add More</button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          {this.state.languages.map(function(language) {
-            return <Language key={language.level_id} language={language}
-                 handleDeleteLanguage={this.deleteLanguage.bind(this)}
-                 handleEditLanguage={this.updateLanguage.bind(this)} />
+      <div className="centerSkillCategories">
+        <section>
+          <table className= "centerUserSkills">
+            <thead>
+              <tr>
+                <th>
+                Skill
+                </th>
+                <th>
+                Description
+                </th>
+                <th>
+                Price
+                </th>
+                <th>
+                portfolio
+                </th>
+                <th>
+                Attachment
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+          {this.state.userSkills.map(function(skill) {
+            return <Skill key={skill.user_Skill_id} skill={skill}
+                 handleDeleteSkill={this.deleteSkill.bind(this)}
+                 handleEditSkill={this.updateSkill.bind(this)} />
           }.bind(this))}
           </tbody>
         </table>
+          {this.state.allSkills.map(function(skill){
+            return(
+              <div className= "categoryType">
+                <h2>{skill.name}</h2>
+                <SkillForm key={skill.skills[0].id} handleNewSkill={this.addSkill.bind(this)}
+                skills={skill.skills}/>
+              </div>
+            )
+          }.bind(this))}
+        </section>
+
       </div>
     )
   }
 }
-ReactDOM.render(<Languages />,document.getElementById('languageKeeper'));
+ReactDOM.render(<Skills />,document.getElementById('skillContainer'));

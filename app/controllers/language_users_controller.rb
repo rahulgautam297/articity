@@ -38,7 +38,7 @@ class LanguageUsersController < ApplicationController
   # PATCH/PUT /language_users/1
   # PATCH/PUT /language_users/1.json
   def update
-    if @language_user.update_attributes(language_user_params.except(:language_user_id, :language))
+    if @language_user.update_attributes(language_user_params.except(:language_user_id, :language, :user_id))
       render json: { status: :ok }
     else
       render json: {  errors: @language_user.errors }

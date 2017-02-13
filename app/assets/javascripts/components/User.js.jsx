@@ -9,8 +9,9 @@ var User=class User extends React.Component {
   var reader = new FileReader();
   var file = e.target.files[0];
   reader.onloadend = function() {
-   this.setState({imageUrl: reader.result });
+   this.setState({imageUrl: '/ring.gif'});
   }.bind(this);
+  var test=reader
   if (file){
     reader.readAsDataURL(file);
   }
@@ -24,18 +25,16 @@ var User=class User extends React.Component {
     dataType: 'json',
     data: formData,
     success: function(post) {
-       console.log("Done!")
-       //change imageUrl from response
-    }
+      this.setState({imageUrl: test.result });
+    }.bind(this)
   })
 }
   imagePresent(){
     return (
-      <section className="containImageandInput">
-        <h3> Update Image </h3>
-        <img src={this.state.imageUrl} className="centerImage"/>
-        <input className="fileInputforImage" type="file" onChange={this.handleUpload.bind(this)}/>
-      </section>
+        <section className="containImageandInput">
+          <img src={this.state.imageUrl} className="centerImage"/>
+          <input className="fileInputForImage" type="file" onChange={this.handleUpload.bind(this)}/>
+        </section>
     );
   }
 
@@ -44,7 +43,7 @@ var User=class User extends React.Component {
       <section className="containImageandInput">
         <h3> Upload Image </h3>
         <form className = "centerImage">
-          <input className="fileInput" type="file" onChange={this.handleUpload.bind(this)}/>
+          <input className="fileInputForForm" type="file" onChange={this.handleUpload.bind(this)}/>
         </form>
       </section>
     );

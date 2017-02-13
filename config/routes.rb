@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # resources :skill_categories
   # resources :language_users
   # resources :languages
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   post   'create_language_preference' => 'language_users#create'
   put    'update_language_preference' => 'language_users#update'
   get    'skills_and_categories'      => 'skill_categories#all_stuff'
-  # post   'search_language'            => 'language_users#search'
+  post   'user_skills'                => 'user_skills#user_skills'
+  delete 'delete_user_skill'          => 'user_skills#destroy'
+  put    'update_user_skill'          => 'user_skills#update'  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

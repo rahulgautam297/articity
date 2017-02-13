@@ -52,10 +52,11 @@ class User < ApplicationRecord
     array.each do |hash|
       obj= {}
       obj[:name] = hash[:name]
+      obj[:user_skill_id] = hash.id
       obj[:description] = hash.description
       obj[:price] = hash.price
       obj[:portfolio] = hash.portfolio
-      obj[:image] = hash.image
+      obj[:multimedia] = hash.multimedia
       new_hash << obj
     end
     return new_hash
