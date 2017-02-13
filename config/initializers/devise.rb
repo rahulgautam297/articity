@@ -274,7 +274,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :facebook, "1637574579878169", "8e410d7ba2599c0f965c1bbe0fc5ec34"
-  config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.production?
+  config.secret_key = '1f51ecddfdcd32a9eb1d7c350cf2750275b65c85315b6cdf2ae0d962d4b3a2e09f88f67721b5f47248fc11ea9f8326a73ba955ce35ba729c3274844203b57c9f'
   # ==> Security Extension
   # Configure security extension for devise
 
