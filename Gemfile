@@ -40,6 +40,8 @@ gem 'react-rails'
 gem 'simple_form'
 gem 'searchkick'
 gem 'jquery-ui-rails'
+gem 'devise_security_extension'
+gem 'rails_email_validator'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
