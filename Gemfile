@@ -32,7 +32,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'carrierwave'
-gem 'mini_magick'
 gem 'fog'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"

@@ -11,7 +11,7 @@ class UserMailer < Devise::Mailer
 
    html = render_to_string template: "devise/mailer/confirmation_instructions.html.erb"
     # Define your message parameters
-    message_params = {:from    => 'Articity <thisisarticity@gmail.com>',
+    message_params = {:from    => 'Articity <contact@articity.in>',
                       :to      => record.email,
                       :subject => 'Welcome to Articity!',
                       :html    => html.to_str}
@@ -28,9 +28,9 @@ class UserMailer < Devise::Mailer
 
    html = render_to_string template: "devise/mailer/reset_password_instructions.html.erb"
     # Define your message parameters
-    message_params = {:from    => 'Articity <thisisarticity@gmail.com>',
+    message_params = {:from    => 'Articity <contact@articity.in>',
                       :to      => record.email,
-                      :subject => 'Welcome to Articity!',
+                      :subject => 'Password reset request',
                       :html    => html.to_str}
 
     # Send your message through the client
@@ -44,9 +44,9 @@ class UserMailer < Devise::Mailer
 
    html = render_to_string template: "devise/mailer/password_change.html.erb"
     # Define your message parameters
-    message_params = {:from    => 'Articity <thisisarticity@gmail.com>',
+    message_params = {:from    => 'Articity <contact@articity.in>',
                       :to      => record.email,
-                      :subject => 'Welcome to Articity!',
+                      :subject => 'You have changed your password',
                       :html    => html.to_str}
 
     # Send your message through the client
