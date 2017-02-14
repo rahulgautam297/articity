@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'carrierwave'
-gem 'fog'
+gem "fog-aws"
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 gem 'react-rails'
