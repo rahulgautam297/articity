@@ -10,7 +10,7 @@ CarrierWave.configure do |config|
   # Use AWS storage if in production
   if Rails.env.production?
     CarrierWave.configure do |config|
-      config.fog_provider = 'fog/aws'  
+      config.storage = 'fog/aws'
     end
   end
 
@@ -18,7 +18,7 @@ CarrierWave.configure do |config|
     :provider               => 'AWS',                             # required
     :aws_access_key_id      => 'AKIAJ5MAZZSUAMT5AQZA',            # required
     :aws_secret_access_key  => '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',     # required
-    :region                 => 'ap-south-1'                        # optional, defaults to 'us-east-1'
+    :region                 => 'us-east-1'                        # optional, defaults to 'us-east-1'
   }
   config.fog_directory  = 'elasticbeanstalk-ap-south-1-218290005745'               # required
   #config.fog_host       = 'https://assets.example.com'           # optional, defaults to nil
