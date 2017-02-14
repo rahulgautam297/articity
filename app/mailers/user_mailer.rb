@@ -6,7 +6,6 @@ class UserMailer < Devise::Mailer
   def confirmation_instructions(record, token, opts={})
     @token = token
     @resource = record
-    debugger
     require 'mailgun'
     mg_client = Mailgun::Client.new "key-a2ba6d81aa1687b45c6ea03b82221013"
 
