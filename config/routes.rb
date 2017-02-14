@@ -19,8 +19,5 @@ Rails.application.routes.draw do
   post   'user_skills'                => 'user_skills#user_skills'
   delete 'delete_user_skill'          => 'user_skills#destroy'
   put    'update_user_skill'          => 'user_skills#update'
-  constraints subdomain: 'www' do
-    get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

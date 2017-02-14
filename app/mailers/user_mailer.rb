@@ -5,7 +5,8 @@ class UserMailer < Devise::Mailer
 
   def confirmation_instructions(record, token, opts={})
     @token = token
-    @resource = resource
+    @resource = record
+    debugger
     require 'mailgun'
     mg_client = Mailgun::Client.new "key-a2ba6d81aa1687b45c6ea03b82221013"
 
@@ -22,7 +23,7 @@ class UserMailer < Devise::Mailer
 
   def reset_password_instructions(record, token, opts={})
     @token = token
-    @resource = resource
+    @resource = record
     require 'mailgun'
     mg_client = Mailgun::Client.new "key-a2ba6d81aa1687b45c6ea03b82221013"
 
@@ -38,7 +39,7 @@ class UserMailer < Devise::Mailer
     # code to be added here later
   end
   def password_change(record, opts={})
-    @resource = resource
+    @resource = record
     require 'mailgun'
     mg_client = Mailgun::Client.new "key-a2ba6d81aa1687b45c6ea03b82221013"
 
