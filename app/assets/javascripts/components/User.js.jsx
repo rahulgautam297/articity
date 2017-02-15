@@ -9,7 +9,7 @@ var User=class User extends React.Component {
   var reader = new FileReader();
   var file = e.target.files[0];
   reader.onloadend = function() {
-   this.setState({imageUrl: '/ring.gif'});
+   this.setState({imageUrl: 'https://s3.ap-south-1.amazonaws.com/elasticbeanstalk-ap-south-1-218290005745/ring.gif'});
   }.bind(this);
   var test=reader
   if (file){
