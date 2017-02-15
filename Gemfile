@@ -31,8 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem "twitter-bootstrap-rails"
-gem 'carrierwave'
-gem "fog-aws"
+gem 'carrierwave', '~> 1.0'
+gem "fog-aws", group: :production
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 gem 'react-rails'
