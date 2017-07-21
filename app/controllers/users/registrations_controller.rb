@@ -1,7 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 before_action :configure_sign_up_params, only: [:create]
+skip_before_filter :verify_authenticity_token, only: :update_seller_info
 prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy,
-                                        :build_seller_profile, :upload_picture]
+                    :build_seller_profile, :upload_picture, :update_seller_info]
 # before_action :configure_account_update_params, only: [:update]
 respond_to :html, :js
 
@@ -32,12 +33,23 @@ respond_to :html, :js
   #   super
   # end
 
+  def new_for_seller
+    @seller= true
+    build_resource({})
+    yield resource if block_given?
+    respond_with(resource) do |format|
+      format.js { render :new }
+    end
+  end
+
  # POST /resource
   def create
+    debugger
+    @seller = params[:user][:seller]
     super
   end
 
-  # GET /resource/edit
+  # # GET /resource/edit
   # def edit
   #   super
   # end
@@ -61,7 +73,7 @@ respond_to :html, :js
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
@@ -73,7 +85,7 @@ respond_to :html, :js
     devise_parameter_sanitizer.permit(:account_update, keys: [:name,:picture,:description,:college,:locality,:state,:portfolio,:mobile])
   end
 
-  # The path used after sign up.
+  #The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
   # end

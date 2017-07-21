@@ -1,20 +1,41 @@
-<div class="col-sm-2 col-xs-8 col-xs-offset-2 col-sm-offset-5 signUpForm">
-  <button class="removeForm">X</button>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%if @seller%>
+    <div class="col-sm-2 col-xs-8 col-xs-offset-2 col-sm-offset-5 sellerSignUpForm">
+    <button class="removeForm">X</button>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+          <%= f.hidden_field :seller, {value: @seller} %>
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true %><br />
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %><br />
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+          <br />
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.submit "Sign up" , class: "btn btn-primary"%>
+          <br />
+    <% end %>
+  <%else%>
+    <div class="col-sm-2 col-xs-8 col-xs-offset-2 col-sm-offset-5 signUpForm">
+    <button class="removeForm">X</button>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
       <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true %><br />  
+      <%= f.text_field :name, autofocus: true %><br />
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %><br />
       <%= f.label :password %><br />
       <%= f.password_field :password, autocomplete: "off" %>
       <br />
       <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
       <%= f.submit "Sign up" , class: "btn btn-primary"%>
       <br />
-  <% end %>
+    <% end %>
+<%end%>
   <br />
   <%= render "devise/shared/links" %>
 </div>

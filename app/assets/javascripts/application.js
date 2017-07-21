@@ -23,11 +23,19 @@ $(document).ready(function() {
 	$(".thouWillBringDarkness").on("click", function() {
 		$('.shallTurnToDarkness').show();
 		$('.signUpForm').hide();
+		$('.sellerSignUpForm').hide();
 		$('body').css({"overflow":"hidden"});
 	});
 	$(".thouWillBringDarkness1").on("click", function() {
 		$('.shallTurnToDarkness').show();
 		$('.signInForm').hide();
+		$('.sellerSignUpForm').hide();
+		$('body').css({"overflow":"hidden"});
+	});
+	$(".thouWillBringDarkness2").on("click", function() {
+		$('.shallTurnToDarkness').show();
+		$('.signInForm').hide();
+		$('.signUpForm').hide();
 		$('body').css({"overflow":"hidden"});
 	});
 	$(function () {

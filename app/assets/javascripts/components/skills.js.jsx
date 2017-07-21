@@ -67,7 +67,7 @@ var Skills = class Skills extends React.Component {
             return(
               <div className= "categoryType">
                 <h2>{skill.name}</h2>
-                <SkillForm key={skill.skills[0].id} handleNewSkill={this.addSkill.bind(this)}
+                <SkillForm key="1" handleNewSkill={this.addSkill.bind(this)}
                 skills={skill.skills}/>
               </div>
             )

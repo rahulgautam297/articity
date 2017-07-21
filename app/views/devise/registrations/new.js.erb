@@ -2,7 +2,12 @@ $('.shallTurnToDarkness').prepend('<%= j render("new") %>');
 $('.signInForm').hide();
 $('.forgotPasswordForm').hide();
 $('.confirmationForm').hide();
+<%if @seller%>
+	$('.signUpForm').hide();
+<%else%>
+	$('.sellerSignUpForm').hide();
+<%end%>
 $(".removeForm").on("click", function() {
 	$('.shallTurnToDarkness').hide();
 	$('body').css({"overflow":"initial"});
-});	
+});

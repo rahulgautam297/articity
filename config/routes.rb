@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   									omniauth_callbacks: "users/omniauth_callbacks", passwords: 'users/passwords', }
   devise_scope :user do
     get   'build_seller_profile'  => 'users/registrations#build_seller_profile'
+    get   'sign_up_seller'        => 'users/registrations#new_for_seller'
   	post  'upload_picture'        => 'users/registrations#upload_picture'
     put   'update_seller_info'    => 'users/registrations#update_seller_info'
   end
